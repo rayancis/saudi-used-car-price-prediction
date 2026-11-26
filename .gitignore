@@ -1,0 +1,26 @@
+# Competition data (not redistributed, see README)
+data/*
+!data/.gitkeep
+
+# Generated submissions
+submissions/*
+!submissions/.gitkeep
+
+# Python / Jupyter
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+
+# Model training artifacts
+catboost_info/
+*.pkl
+*.joblib
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
