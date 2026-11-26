@@ -6,10 +6,10 @@ The task: predict the listing price (SAR) of used cars in Saudi Arabia from mess
 
 | | |
 |---|---|
-| 🏆 Final rank | **3rd** / `[N]` teams |
-| 📉 Private leaderboard RMSLE | `[0.xxxxx]` |
-| 📊 Public leaderboard RMSLE | `[0.xxxxx]` |
-| ✅ Local 5-fold OOF RMSLE (stack) | **0.1123** |
+| 🏆 Final rank | **3rd place** |
+| 📉 Private leaderboard RMSLE | **0.1096** |
+| 📊 Public leaderboard RMSLE | 0.1097 |
+| ✅ Local 5-fold OOF RMSLE (stack) | 0.1123 |
 | ⏱️ Time limit | 4 hours, laptop only |
 
 ---
@@ -75,7 +75,7 @@ flowchart LR
 
 <p align="center"><img src="assets/results.png" width="95%"></p>
 
-> **Note on reproducibility.** The notebook submitted during the competition scored 0.1126 OOF. While cleaning the code for this repo I fixed two bugs found in review: the MLP was trained on unscaled numeric features (OOF RMSLE 5.18, so the stack ignored it), and LightGBM's row subsampling was silently off (`subsample_freq` was 0). This version is slightly better at 0.1123.
+> **Note on reproducibility.** The notebook submitted during the competition scored 0.1126 OOF. While cleaning the code for this repo I fixed two bugs found in review: the MLP was trained on unscaled numeric features (OOF RMSLE 5.18, so the stack ignored it), and LightGBM's row subsampling was silently off (`subsample_freq` was 0). This version is slightly better at 0.1123 OOF. The leaderboard scores above are from the competition-day submission; the private score (0.1096) was essentially equal to the public one (0.1097), a good sign that the model generalised rather than overfitting the public split.
 
 ## Repository structure
 
@@ -100,11 +100,7 @@ cd saudi-used-car-price-prediction
 pip install -r requirements.txt
 ```
 
-**Get the data.** The competition data is not redistributed here. Download `train.csv`, `test.csv` and `sample_submission.csv` from the competition's Data tab (you need to have joined the competition) and place them in `data/`:
-
-```bash
-kaggle competitions download -c <competition-slug> -p data && unzip data/*.zip -d data
-```
+**Get the data.** The competition data is not redistributed here. Download `train.csv`, `test.csv` and `sample_submission.csv` from the competition's Data tab on Kaggle (the competition was invite-only, so you need access) and place them in `data/`.
 
 **Train and create a submission** (≈2–3 minutes on a 4-core CPU):
 
